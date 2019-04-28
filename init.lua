@@ -121,7 +121,7 @@ minetest.register_chatcommand('tw', {
         if playername and wpname then
             local waypoint = waypoints[wpname]
             if waypoint ~= nil then
-                local args = ('%s %s'):format(playername, tostring_point(point))
+                local args = ('%s %s'):format(playername, tostring_point(waypoint))
                 minetest.run_server_chatcommand('teleport', args)
             else
                 minetest.display_chat_message(('waypoint "%s" not found.'):format(wpname))
@@ -130,7 +130,7 @@ minetest.register_chatcommand('tw', {
             local wpname = param
             local waypoint = waypoints[wpname]
             if waypoint ~= nil then
-                minetest.run_server_chatcommand('teleport', tostring_point(point))
+                minetest.run_server_chatcommand('teleport', tostring_point(waypoint))
             else
                 minetest.display_chat_message(('waypoint "%s" not found.'):format(wpname))
             end
