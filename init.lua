@@ -69,7 +69,7 @@ local function tostring_point(point)
 end
 
 
-minetest.register_chatcommand('wp_s', {
+minetest.register_chatcommand('wp_set', {
     params = '<name>',
     description = 'set a waypoint',
     func = safe(function(param)
@@ -85,7 +85,7 @@ minetest.register_chatcommand('wp_s', {
 })
 
 
-minetest.register_chatcommand('wp_rm', {
+minetest.register_chatcommand('wp_unset', {
     params = '<name>',
     description = 'remove a waypoint',
     func = safe(function(param)
@@ -100,7 +100,7 @@ minetest.register_chatcommand('wp_rm', {
 })
 
 
-minetest.register_chatcommand('wp_ls', {
+minetest.register_chatcommand('wp_list', {
     params = '',
     description = 'lists waypoints',
     func = safe(function(_)

@@ -21,12 +21,13 @@ make sure `~/.minetest/clientmods/mods.conf` exists and contains:
 load_mod_cs_waypoints = true
 ```
 
-= usage =
+usage
+-----
 
-* to set a waypoint at your current location, type .wp_s NAME_OF_WAYPOINT
-* to remove a waypoint, type .wp_rm NAME_OF_WAYPOINT
-* to list waypoints, type .wp_ls
-* to teleport to a waypoint, type .tw NAME_OF_WAYPOINT
-* to teleport another player to a waypoint, type .tw PLAYER NAME_OF_WAYPOINT
-* to teleport to a random location, type .tr
-* to teleport to a random location at a particular elevation (y value), type .tr ELEVATION
+* .wp_set <NAME>: set a waypoint at your current location
+* .wp_unset <NAME>: remove a waypoint
+* .wp_list: list all waypoints
+* .tw <NAME>: teleport to a waypoint
+* .tw <PLAYERNAME> <WAYPOINT_NAME>: teleport another player to a waypoint
+* .tr: teleport to a random location
+* .tr <ELEVATION>: teleport to a random location at a given elevation (y value)
