@@ -24,10 +24,10 @@ load_mod_cs_waypoints = true
 usage
 -----
 
-* .wp_set <NAME>: set a waypoint at your current location
-* .wp_unset <NAME>: remove a waypoint
+* .wp_set NAME: set a waypoint at your current location
+* .wp_unset NAME: remove a waypoint
 * .wp_list: list all waypoints
-* .tw <NAME>: teleport to a waypoint
-* .tw <PLAYERNAME> <WAYPOINT_NAME>: teleport another player to a waypoint
+* .tw NAME: teleport to a waypoint
+* .tw PLAYERNAME WAYPOINT_NAME: teleport another player to a waypoint
 * .tr: teleport to a random location
-* .tr <ELEVATION>: teleport to a random location at a given elevation (y value)
+* .tr ELEVATION: teleport to a random location at a given elevation (y value)
