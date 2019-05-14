@@ -8,12 +8,16 @@ log('action', 'CSM loading...')
 
 local mod_storage = minetest.get_mod_storage()
 
-local waypoints
-if string.find(mod_storage:get_string('waypoints'), 'return') then
-    waypoints = minetest.deserialize(mod_storage:get_string('waypoints'))
-else
-    waypoints = {}
+
+local function load_waypoints()
+    if string.find(mod_storage:get_string('waypoints'), 'return') then
+        return minetest.deserialize(mod_storage:get_string('waypoints'))
+    else
+        return {}
+    end
 end
+
+local waypoints = load_waypoints()
 
 
 local function safe(func)
@@ -65,7 +69,7 @@ end
 
 
 local function tostring_point(point)
-    return ('%i %i %i'):format(round(point.x), round(point.y), round(point.z))
+    return ('%i %i.5 %i'):format(round(point.x), round(point.y), round(point.z))
 end
 
 
@@ -73,7 +77,7 @@ minetest.register_chatcommand('wp_set', {
     params = '<name>',
     description = 'set a waypoint',
     func = safe(function(param)
-        waypoints = minetest.deserialize(mod_storage:get_string('waypoints'))
+        waypoints = load_waypoints()
         local point = minetest.localplayer:get_pos()
         waypoints[param] = point
         mod_storage:set_string('waypoints', minetest.serialize(waypoints))
@@ -89,7 +93,7 @@ minetest.register_chatcommand('wp_unset', {
     params = '<name>',
     description = 'remove a waypoint',
     func = safe(function(param)
-        waypoints = minetest.deserialize(mod_storage:get_string('waypoints'))
+        waypoints = load_waypoints()
         waypoints[param] = nil
         mod_storage:set_string('waypoints', minetest.serialize(waypoints))
 
