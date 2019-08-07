@@ -69,7 +69,7 @@ end
 
 
 local function tostring_point(point)
-    return ('%i %i.5 %i'):format(round(point.x), round(point.y), round(point.z))
+    return ('%i %i %i'):format(round(point.x), round(point.y + 0.5), round(point.z))
 end
 
 
